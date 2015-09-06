@@ -23,6 +23,12 @@
             "alias": "a",
             "type": "Boolean",
             "description": "Archives the current problem.js solution"
+        },
+        {
+            "name": "load",
+            "alias": "l",
+            "type": "Number",
+            "description": "Loads archived solution into problem.js, if one exists for the specified number"
         }
     ],
     "usage": {

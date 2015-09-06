@@ -32,12 +32,26 @@ if (options.help) {
         }
         console.log('Elapsed Time: ' + solution.elapsed);
     } else if (options.archive) {
-        var num = parseInt(fs.readFileSync('./problem.js', 'utf-8').split('\n')[1].split('#')[1]);
+        var num = parseInt(fs.readFileSync('./problem.js', 'utf-8').split('\n')[3].split('#')[1]);
         fs.readFile('./problem.js', 'utf-8', function(err, data) {
             if (err) throw err;
             var solutionPath = path.join(__dirname, 'solutions/euler' + num + '.js');
             fs.writeFileSync(solutionPath, data);
             console.log('Solution archived in ' + solutionPath);
+        });
+    } else if (options.load) {
+        var solutionPath = path.join(__dirname, 'solutions/euler' + options.load + '.js');
+        fs.readFile(solutionPath, 'utf-8', function(err, data) {
+            if (err) {
+                if (err.message.substr(0,6) === 'ENOENT') {
+                    console.error('Error: Solution #' + options.load + ' not found.');
+                    process.exit(1);
+                } else {
+                    throw err;
+                }
+            }
+            fs.writeFileSync('./problem.js', data);
+            console.log('Solution #' + options.load + ' loaded into problem.js');
         });
     }
 }
