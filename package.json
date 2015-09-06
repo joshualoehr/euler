@@ -1,0 +1,24 @@
+{
+  "name": "Euler Companion",
+  "version": "1.0.0",
+  "description": "A companion app for completing the Project Euler problems.",
+  "main": "euler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "command-line-args": "~1.0.0",
+    "js-yaml": "~3.4.1",
+    "md5": "~2.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joshualoehr/euler.git"
+  },
+  "author": "Josh Loehr",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joshualoehr/euler/issues"
+  },
+  "homepage": "https://github.com/joshualoehr/euler#readme"
+}

@@ -1,0 +1,33 @@
+{
+    "args": [
+        {
+            "name": "help",
+            "alias": "h",
+            "type": "Boolean",
+            "description": "Print usage instructions"
+        },
+        {
+            "name": "init",
+            "alias": "i",
+            "type": "Number",
+            "description": "Initialize problem template"
+        },
+        {
+            "name": "solve",
+            "alias": "s",
+            "multiple": true,
+            "description": "Check solution contained in problem.js against the provided arguments"
+        },
+        {
+            "name": "archive",
+            "alias": "a",
+            "type": "Boolean",
+            "description": "Archives the current problem.js solution"
+        }
+    ],
+    "usage": {
+        "title": "Euler Companion",
+        "description": "A companion app for completing the Project Euler problems.",
+        "footer": "Author: Josh Loehr\n  Project home: [underline]{https://github.com/joshualoehr/euler.git}\n  Archived problems courtesy of Kyle Keen [underline]{http://kmkeen.com/local-euler/}"
+    }
+}
