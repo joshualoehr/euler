@@ -19,7 +19,9 @@ if (options.help) {
     problemDoc = yaml.safeLoad(fs.readFileSync(filePath));
     if (options.init) {
         var problem = problemDoc[options.init - 1];
-        fs.writeFileSync('./problem.js', generateProblemTemplate(problem));
+        var problemPath = path.join(__dirname, 'problem.js');
+        fs.writeFileSync(problemPath, generateProblemTemplate(problem));
+        console.log('Template for Problem #' + options.init + ' generated in ' + problemPath);
     } else if (options.solve) {
         var num = parseInt(fs.readFileSync('./problem.js', 'utf-8').split('\n')[1].split('#')[1]);
         var solution = solve(options.solve)
@@ -33,7 +35,9 @@ if (options.help) {
         var num = parseInt(fs.readFileSync('./problem.js', 'utf-8').split('\n')[1].split('#')[1]);
         fs.readFile('./problem.js', 'utf-8', function(err, data) {
             if (err) throw err;
-            fs.writeFileSync('./solutions/euler' + num + '.js', data);
+            var solutionPath = path.join(__dirname, 'solutions/euler' + num + '.js');
+            fs.writeFileSync(solutionPath, data);
+            console.log('Solution archived in ' + solutionPath);
         });
     }
 }
