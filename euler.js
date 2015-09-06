@@ -23,7 +23,7 @@ if (options.help) {
         fs.writeFileSync(problemPath, generateProblemTemplate(problem));
         console.log('Template for Problem #' + options.init + ' generated in ' + problemPath);
     } else if (options.solve) {
-        var num = parseInt(fs.readFileSync('./problem.js', 'utf-8').split('\n')[1].split('#')[1]);
+        var num = parseInt(fs.readFileSync('./problem.js', 'utf-8').split('\n')[3].split('#')[1]);
         var solution = solve(options.solve)
         if (solution.answer === problemDoc[num-1].answer) {
             console.log('Success! Your solution is correct.');
@@ -63,7 +63,9 @@ function solve(args) {
 }
 
 function generateProblemTemplate(problem) {
-    var text = ['/**'];
+    var utilPath = path.join(__dirname, 'util.js');
+    var text = ['var util = require("' + utilPath + '");\n'];
+    text.push('/**');
     text.push('* PROBLEM #' + problem.id);
     text.push('*');
     text.push(problem.description.split('\n').map(function(line) {
