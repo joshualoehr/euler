@@ -57,7 +57,7 @@ function solve(args) {
     var solution = fn.apply(null, args);
     var after = new Date().getMilliseconds();
     return {
-        answer: md5('' + fn.apply(null, args)),
+        answer: md5('' + solution),
         elapsed: (after - before) + 'ms'
     }
 }
